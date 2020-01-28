@@ -2,6 +2,7 @@ const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const path = require("path");
+const workouts = require("./models/workout.js")
 
 const PORT = process.env.PORT || 3000;
 
@@ -32,9 +33,19 @@ app.get("/api/workouts", (req, res)=> {
 });
 
 app.put("/api/workouts/:id", (req, res)=> {
-    req.params.id
-    res.json({});
-});
+    var condition = "id = " + req.params.id;
+    console.log("made it this far")
+
+    workouts.update(condition, function(result){
+        console.log(result);
+        // if (result.changedRows == 0) {
+        //     // If no rows were changed, then the ID must not exist, so 404
+        //     return res.status(404).end();
+        // } else {
+        //     res.status(200).end();
+        // }
+    })
+})  
 
 app.post("/api/workouts", (req, res)=> {
     console.log("req.body", req.body)
