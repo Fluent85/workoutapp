@@ -32,25 +32,55 @@ app.get("/api/workouts", (req, res)=> {
         });
 });
 
-app.put("/api/workouts/:id", (req, res)=> {
-    var condition = "id = " + req.params.id;
-    console.log("made it this far")
+app.get("/api/workouts/range", (req, res)=> {
+    db.Workout.find({})
+        .then(dbWorkout => {
+            res.json(dbWorkout);
+        })
+        .catch(err => {
+            res.json(err);
+        });
+});
 
-    workouts.update(condition, function(result){
+app.put("/api/workouts/:id/", (req, res)=> {
+    var condition = "id = " + req.params.id;
+    console.log(req.body)
+    //{id: req.params.id}
+
+    db.Workout.updateOne({_id: req.params.id}, { $push: { exercises: req.body} })
+    .then(function(result){
         console.log(result);
-        // if (result.changedRows == 0) {
-        //     // If no rows were changed, then the ID must not exist, so 404
-        //     return res.status(404).end();
-        // } else {
-        //     res.status(200).end();
-        // }
+        if (result.nModified == 0) {
+            // If no rows were changed, then the ID must not exist, so 404
+            return res.json(false)
+        } else {
+            res.json(true)
+            //res.status(200).end();
+        }
     })
+    .catch(err => {
+        res.json(err);
+    });
+        
+        
+         
+    
 })  
 
 app.post("/api/workouts", (req, res)=> {
     console.log("req.body", req.body)
-    res.json({});
+    //create new workout
+    db.Workout.create({})
+    .then(dbWorkout => {
+        res.json(dbWorkout);
+    })
+    .catch(err => {
+        res.json(err);
+    });
 });
+    //don't have to give any data
+    //db.Workout
+ 
 
 //HTML Routes:
 
