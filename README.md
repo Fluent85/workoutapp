@@ -27,12 +27,16 @@ The user should be able to:
 
 ## Issues and future development
 
-Currently the application works.  Would like to make some changes to the readme file, also add this application to Heroku.
+Currently the application works.  Would like to make some changes to the readme file, add a short video and some snapshot images.
 
 
 ## Technologies Implemented
 
 HTML 5, CSS, JavaScript, Vanilla JavaScript, jQuery, Node express, MongoDB, Mongoose  
+
+## heroku
+
+https://fast-beach-05660.herokuapp.com/
 
 
 ## Credits
