@@ -1,6 +1,6 @@
 # workoutapp
 
-The goal for this project was for me to get more familiar with creating a Mongo database with a Mongoose schema and handle routes with Express. 
+The goal for this project was for me to get more familiar with creating a Mongo database with a Mongoose schema and handle routes with Express. I am also adding PWA, progessive web application.  This is a type of application software delivered through the web, built using common web technologies including HTML, CSS and JavaScript. It is intended to work on any platform that uses a standards-compliant browser. Functionality includes working offline, push notifications, and device hardware access, enabling creating user experiences similar to native applications on desktop and mobile devices. Since a progressive web app is a type of webpage or website known as a web application, there is no requirement for developers or users to install the web apps via digital distribution systems like Apple App Store or Google Play.    <a href="https://en.wikipedia.org/wiki/Progressive_web_application"> PWA</a>
  
 ## Motivation
 
@@ -32,7 +32,7 @@ Currently the application works.  Would like to make some changes to the readme 
 
 ## Technologies Implemented
 
-HTML 5, CSS, JavaScript, Vanilla JavaScript, jQuery, Node express, MongoDB, Mongoose  
+HTML 5, CSS, JavaScript, Vanilla JavaScript, jQuery, Node express, MongoDB, Mongoose, PWA  
 
 ## heroku
 
