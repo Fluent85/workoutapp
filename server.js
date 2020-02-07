@@ -61,10 +61,39 @@ app.put("/api/workouts/:id/", (req, res)=> {
     .catch(err => {
         res.json(err);
     });
+  
+})  
+
+app.post("/api/workouts/bulk", (req, res)=> {
+    var condition = "id = " + req.params.id;
+    console.log(req.body)
+    //{id: req.params.id}
+
+    db.Workout.findOne({})
+    .then(function(response){
+        console.log(response.excercises)
+        var combinedArr = response.excercies.concat(req.body)
+        return db.Workout.updateOne({}, {  exercises: combinedArr })
         
-        
-         
+    })
+    .then(function(result){
+
+        console.log(result);
+        if (result.nModified == 0) {
+            // If no rows were changed, then the ID must not exist, so 404
+            return res.json(false)
+        } else {
+            res.json(true)
+            //res.status(200).end();
+        }
+    })
+    .catch(err => {
+        res.json(err);
+    });
+    //combineArr = the current arr plus arr from req.body
+
     
+  
 })  
 
 app.post("/api/workouts", (req, res)=> {

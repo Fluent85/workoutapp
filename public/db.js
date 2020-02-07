@@ -8,6 +8,8 @@ const indexedDB =
 let db;
 const request = indexedDB.open("offine", 1);
 
+console.log("DB.JS FILE")
+
 request.onupgradeneeded = ({ target }) => {
   let db = target.result;
   db.createObjectStore("pending", { autoIncrement: true });
